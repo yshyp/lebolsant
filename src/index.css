@@ -12,45 +12,207 @@
   }
 }
 
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+/* --- Vegetable Chopping & Knife Slicing Keyframes --- */
+@keyframes knife-chop {
+  0% {
+    transform: translate(0px, 0px) rotate(-32deg);
+  }
+  28% {
+    transform: translate(-14px, 22px) rotate(4deg);
+  }
+  36% {
+    transform: translate(-12px, 24px) rotate(2deg);
   }
   50% {
-    transform: translateY(-12px) rotate(3deg);
+    transform: translate(-6px, 10px) rotate(-14deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(-32deg);
   }
 }
 
-@keyframes float-reverse {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+@keyframes knife-sheen {
+  0%, 25% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(45deg);
   }
-  50% {
-    transform: translateY(10px) rotate(-4deg);
-  }
-}
-
-@keyframes pulse-subtle {
-  0%, 100% {
+  30% {
     opacity: 0.9;
+    transform: translateX(120%) rotate(45deg);
+  }
+  35%, 100% {
+    opacity: 0;
+    transform: translateX(150%) rotate(45deg);
+  }
+}
+
+@keyframes slice-part-left {
+  0%, 28% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  45% {
+    transform: translate(-20px, -8px) rotate(-16deg);
+  }
+  80%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+@keyframes slice-part-right {
+  0%, 28% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  45% {
+    transform: translate(20px, 8px) rotate(16deg);
+  }
+  80%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+@keyframes slash-flash {
+  0%, 26% {
+    opacity: 0;
+    transform: scaleX(0) rotate(-45deg);
+  }
+  29% {
+    opacity: 1;
+    transform: scaleX(1.4) rotate(-45deg);
+  }
+  40% {
+    opacity: 0.7;
+    transform: scaleX(1) rotate(-45deg);
+  }
+  50%, 100% {
+    opacity: 0;
+    transform: scaleX(0.2) rotate(-45deg);
+  }
+}
+
+@keyframes chop-bounce {
+  0%, 100% {
     transform: scale(1);
   }
-  50% {
-    opacity: 1;
-    transform: scale(1.03);
+  29% {
+    transform: scale(1.15) translateY(-3px);
+  }
+  40% {
+    transform: scale(0.96) translateY(1px);
+  }
+  55% {
+    transform: scale(1);
   }
 }
 
-.animate-float-slow {
-  animation: float-slow 7s ease-in-out infinite;
+@keyframes floating-sway {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-14px) translateX(8px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(10px) translateX(-8px) rotate(-4deg);
+  }
 }
 
-.animate-float-reverse {
-  animation: float-reverse 8s ease-in-out infinite;
+@keyframes floating-sway-reverse {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(14px) translateX(-8px) rotate(-5deg);
+  }
+  66% {
+    transform: translateY(-10px) translateX(8px) rotate(4deg);
+  }
 }
 
-.animate-pulse-subtle {
-  animation: pulse-subtle 4s ease-in-out infinite;
+@keyframes tumble-fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(140px) rotate(260deg) scale(1.05);
+    opacity: 0;
+  }
+}
+
+@keyframes click-ripple-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.15);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes particle-burst {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 20px), var(--ty, -30px)) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes tab-freeflow {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.animate-knife-chop {
+  animation: knife-chop 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  transform-origin: top right;
+}
+
+.animate-knife-sheen {
+  animation: knife-sheen 2s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+.animate-slice-left {
+  animation: slice-part-left 2s ease-in-out infinite;
+}
+
+.animate-slice-right {
+  animation: slice-part-right 2s ease-in-out infinite;
+}
+
+.animate-slash-flash {
+  animation: slash-flash 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-chop-bounce {
+  animation: chop-bounce 2s ease-out infinite;
+}
+
+.animate-floating-sway {
+  animation: floating-sway 8s ease-in-out infinite;
+}
+
+.animate-floating-sway-reverse {
+  animation: floating-sway-reverse 10s ease-in-out infinite;
+}
+
+.animate-tab-freeflow {
+  animation: tab-freeflow 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Custom scrollbars */
@@ -68,3 +230,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+

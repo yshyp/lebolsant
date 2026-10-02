@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { MENU_ITEMS } from '../data/mockData';
+import { VegetableCuttingBackground, LiveChoppingBoardCard } from './VegetableCuttingAnimation';
 import {
   Salad,
   Sparkles,
@@ -19,6 +20,7 @@ import {
   X,
   HeartHandshake
 } from 'lucide-react';
+
 
 export const HomeTab: React.FC = () => {
   const { setCurrentTab, openMealCustomizer, setIsMakeMySaladOpen, menuItems } = useApp();
@@ -100,26 +102,13 @@ export const HomeTab: React.FC = () => {
 
   return (
     <div className="space-y-16 pb-16">
-      {/* 1. HERO SECTION WITH ANIMATED VEGETABLE ASSETS */}
+      {/* 1. HERO SECTION WITH ANIMATED VEGETABLE CUTTING BACKGROUND */}
       <section className="relative overflow-hidden pt-8 pb-16 sm:py-20 lg:py-24 bg-radial from-[#F5F1E8] via-[#FDFBF7] to-[#F7F3EB] border-b border-[#2E7D32]/10">
-        {/* Floating Decorative Vegetable / Organic Graphic Assets */}
-        <div className="absolute top-10 left-6 lg:left-16 text-3xl sm:text-4xl animate-float-slow select-none opacity-85 pointer-events-none drop-shadow-md">
-          🥗
-        </div>
-        <div className="absolute bottom-12 left-1/4 text-2xl sm:text-3xl animate-float-reverse select-none opacity-80 pointer-events-none drop-shadow-sm">
-          🥑
-        </div>
-        <div className="absolute top-16 right-10 lg:right-28 text-3xl sm:text-4xl animate-float-slow select-none opacity-85 pointer-events-none drop-shadow-md">
-          🌱
-        </div>
-        <div className="absolute bottom-16 right-12 lg:right-32 text-2xl sm:text-3xl animate-float-reverse select-none opacity-75 pointer-events-none">
-          🍅
-        </div>
-        <div className="absolute top-1/2 left-4 text-xl sm:text-2xl animate-pulse-subtle select-none opacity-70 pointer-events-none">
-          🥦
-        </div>
+        {/* Animated Vegetable Slicing & Chopping Background Layer */}
+        <VegetableCuttingBackground />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Headline & CTAs */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -233,7 +222,13 @@ export const HomeTab: React.FC = () => {
         </div>
       </section>
 
+      {/* LIVE 5 AM VEGETABLE CHOPPING INTERACTIVE STATION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-10 relative z-20">
+        <LiveChoppingBoardCard />
+      </section>
+
       {/* 2. INTERACTIVE VALUE PROPS (DIALOG BOXES) */}
+
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-bold uppercase tracking-wider text-[#2E7D32]">Our Guarantees</span>
