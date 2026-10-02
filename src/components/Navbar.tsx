@@ -176,27 +176,26 @@ export const Navbar: React.FC = () => {
           )}
 
           {/* User Auth / Profile */}
-
           {isLoggedIn ? (
             <button
               onClick={() => setIsProfileDrawerOpen(true)}
               className="flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-[#1B5E20] text-sm font-semibold hover:bg-emerald-100 transition shadow-xs cursor-pointer"
             >
               <div className="w-7 h-7 rounded-full bg-[#2E7D32] text-white flex items-center justify-center text-xs font-bold">
-                {currentCustomer?.fullName.charAt(0) || 'U'}
+                {currentCustomer?.fullName?.charAt(0) || 'U'}
               </div>
-              <span className="hidden sm:inline max-w-[100px] truncate">{currentCustomer?.fullName.split(' ')[0]}</span>
+              <span className="hidden sm:inline max-w-[100px] truncate">{currentCustomer?.fullName?.split(' ')[0]}</span>
             </button>
           ) : (
             <button
               onClick={() => setIsAuthModalOpen(true)}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white border border-[#2E7D32]/30 text-[#2E7D32] text-sm font-bold hover:bg-[#2E7D32]/5 transition shadow-xs cursor-pointer"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#2E7D32] hover:bg-[#1B5E20] text-white text-sm font-bold transition shadow-xs cursor-pointer"
             >
-              <User className="w-4 h-4 text-[#2E7D32]" />
-              <span className="hidden sm:inline">Sign In / OTP</span>
-              <span className="sm:hidden">Login</span>
+              <User className="w-4 h-4 text-white" />
+              <span>Login</span>
             </button>
           )}
+
 
           {/* Share with Gym Buddy / Friend button */}
           <button
@@ -255,6 +254,33 @@ export const Navbar: React.FC = () => {
           })}
 
           <div className="pt-3 border-t border-slate-200 space-y-2">
+            {isLoggedIn ? (
+              <button
+                onClick={() => {
+                  setIsProfileDrawerOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-emerald-50 border border-emerald-200 text-[#1B5E20] font-bold text-sm"
+              >
+                <div className="flex items-center gap-2">
+                  <User className="w-4 h-4 text-[#2E7D32]" />
+                  <span>My Profile ({currentCustomer?.fullName})</span>
+                </div>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setIsAuthModalOpen(true);
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-bold text-sm shadow-xs"
+              >
+                <User className="w-4 h-4 text-white" />
+                <span>Login</span>
+              </button>
+            )}
+
             <button
               onClick={() => {
                 setIsShareModalOpen(true);
@@ -265,6 +291,7 @@ export const Navbar: React.FC = () => {
               <Share2 className="w-4 h-4" />
               <span>Share with a Workout Buddy (Get 5% Off)</span>
             </button>
+
 
             {isAdminLoggedIn && (
               <button

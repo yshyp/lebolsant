@@ -225,11 +225,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
   const [lastWebhookSyncTime, setLastWebhookSyncTime] = useState<string | null>(null);
 
-  // Customer Auth
+  // Customer Auth - starts logged out unless a real authenticated user session exists
   const [currentCustomer, setCurrentCustomer] = useState<CustomerProfile | null>(() => {
     const saved = localStorage.getItem('lbs_current_user');
-    return saved ? JSON.parse(saved) : INITIAL_CUSTOMERS[0]; // Pre-load active gym customer for instant testability
+    if (!saved) return null;
+    try {
+      const user = JSON.parse(saved);
+      // Clean up any previously auto-loaded Rahul Sharma unless actively logged in
+      const manualAuth = localStorage.getItem('lbs_manual_auth');
+      if (user && user.fullName === 'Rahul Sharma' && !manualAuth) {
+        localStorage.removeItem('lbs_current_user');
+        return null;
+      }
+      return user;
+    } catch {
+      return null;
+    }
   });
+
 
   // Cart
   const [cart, setCart] = useState<CartItem[]>(() => {
@@ -456,6 +469,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         };
         setCustomersSheet((prev) => [customer!, ...prev]);
       }
+      localStorage.setItem('lbs_manual_auth', 'true');
       setCurrentCustomer(customer);
       setIsAuthModalOpen(false);
       return true;
@@ -465,7 +479,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const logoutCustomer = () => {
     setCurrentCustomer(null);
+    localStorage.removeItem('lbs_current_user');
+    localStorage.removeItem('lbs_manual_auth');
   };
+
 
   const updateCustomerProfile = (profile: CustomerProfile) => {
     setCurrentCustomer(profile);
