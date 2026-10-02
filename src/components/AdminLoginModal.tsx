@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { BrandEmblem } from './brand/BrandEmblem';
 import { ShieldCheck, KeyRound, Lock, UserCheck, AlertCircle, X, ArrowRight, ChefHat, Building2 } from 'lucide-react';
+
 
 export const AdminLoginModal: React.FC = () => {
   const { isAdminAuthModalOpen, setIsAdminAuthModalOpen, adminLogin, setCurrentTab } = useApp();
@@ -56,14 +58,13 @@ export const AdminLoginModal: React.FC = () => {
 
         {/* Modal Top Header */}
         <div className="bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 p-6 text-white text-center">
-          <div className="w-12 h-12 bg-emerald-500/20 border border-emerald-400/30 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-inner">
-            <Lock className="w-6 h-6 text-emerald-300" />
-          </div>
+          <BrandEmblem className="w-14 h-14 mx-auto mb-2 drop-shadow-md" />
           <h3 className="text-2xl font-bold font-display tracking-tight">Admin &amp; Operations Portal</h3>
           <p className="text-xs text-emerald-200/90 mt-1">
             Kitchen Logistics &bull; Google Sheets Synchronization &bull; Financials
           </p>
         </div>
+
 
         {/* Form Body */}
         <div className="p-6">

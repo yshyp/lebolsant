@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { BrandLogo } from './brand/BrandLogo';
 import {
   Salad,
   Clock,
@@ -14,6 +15,7 @@ import {
   ChevronRight,
   Share2
 } from 'lucide-react';
+
 
 export const Navbar: React.FC = () => {
   const {
@@ -116,24 +118,12 @@ export const Navbar: React.FC = () => {
 
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Logo */}
-        <button
+        {/* Official Brand Logo */}
+        <BrandLogo
+          variant="compact"
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-3 group text-left cursor-pointer"
-        >
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#2E7D32] to-[#1B5E20] flex items-center justify-center text-white shadow-md shadow-[#2E7D32]/20 group-hover:scale-105 transition-transform">
-            <Salad className="w-6 h-6 text-emerald-200" />
-          </div>
-          <div>
-            <div className="text-2xl font-black tracking-tight text-[#1B5E20] flex items-center gap-1.5 font-display">
-              le bol santé
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E65100]"></span>
-            </div>
-            <p className="text-[11px] font-semibold text-[#64748B] tracking-wide uppercase">
-              Freshly Chopped &bull; Perfectly Balanced
-            </p>
-          </div>
-        </button>
+        />
+
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-1">

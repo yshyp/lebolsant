@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
 import { MENU_ITEMS } from '../data/mockData';
 import { VegetableCuttingBackground, LiveChoppingBoardCard } from './VegetableCuttingAnimation';
+import { BrandLogo } from './brand/BrandLogo';
+import { BrandEmblem } from './brand/BrandEmblem';
 import {
+
   Salad,
   Sparkles,
   ArrowRight,
@@ -112,91 +115,90 @@ export const HomeTab: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Headline & CTAs */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/90 border border-emerald-300 text-[#1B5E20] text-xs font-bold shadow-xs">
-                <Leaf className="w-3.5 h-3.5 text-[#2E7D32]" />
-                <span>Subscription-Based Culinary Wellness</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-[#164223] text-xs font-bold shadow-xs">
+                <Leaf className="w-3.5 h-3.5 text-[#1B5E20]" />
+                <span>Daily 5:00 AM Freshly Chopped · Sugarcane Bagasse Eco-Bowls</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1B5E20] tracking-tight font-display leading-[1.08]">
-                le bol santé
-                <span className="block text-2xl sm:text-3xl lg:text-4xl text-[#2E7D32] font-semibold mt-2 font-serif-accent italic">
-                  Freshly Chopped, Perfectly Balanced
-                </span>
-                <span className="block text-xl sm:text-2xl lg:text-2xl font-black text-[#E65100] mt-1 font-display tracking-normal uppercase">
-                  The Ultimate Salad.
-                </span>
-              </h1>
+              {/* Official Brand Logo (Emblem + Botanical Wordmark + Leaf Divider + Taglines) */}
+              <div className="flex justify-center lg:justify-start pt-1 pb-2">
+                <BrandLogo
+                  variant="full"
+                  className="items-center lg:items-start text-center lg:text-left max-w-xl"
+                />
+              </div>
 
               <p className="text-slate-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                Chef-crafted salad bowls, warm simmered soups, super-berry smoothie meals, and overnight oats. 
-                Delivered straight to your <strong className="text-slate-800">gym locker, corporate office, or PG</strong> with 
-                instant <strong className="text-emerald-800">5:00 PM Day Push</strong> flexibility.
+                Chef-crafted signature bowls, warm simmered soups, super-berry smoothie meals, and overnight oats. 
+                Delivered straight to your <strong className="text-slate-900 font-bold">gym locker, corporate desk, or PG residence</strong> with 
+                instant <strong className="text-[#164223] font-bold">5:00 PM Day Push</strong> schedule flexibility.
               </p>
 
-              {/* CTAs */}
+              {/* CTAs with Brand Colors */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
                 <button
                   onClick={() => setCurrentTab('menu')}
-                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-[#2E7D32] hover:bg-[#1B5E20] text-white font-extrabold text-base shadow-xl shadow-[#2E7D32]/25 transition flex items-center justify-center gap-2.5 cursor-pointer group hover:scale-[1.02]"
+                  className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-[#164223] hover:bg-[#0F351A] text-white font-extrabold text-base shadow-xl shadow-[#164223]/25 transition flex items-center justify-center gap-2.5 cursor-pointer group hover:scale-[1.02] active:scale-95"
                 >
-                  <Salad className="w-5 h-5 text-emerald-200" />
+                  <Salad className="w-5 h-5 text-emerald-300" />
                   <span>Order Now / Explore Menu</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
 
                 <button
                   onClick={() => setCurrentTab('subscriptions')}
-                  className="w-full sm:w-auto px-6 py-4 rounded-2xl bg-white hover:bg-emerald-50 text-[#1B5E20] font-bold text-base border-2 border-[#2E7D32]/30 shadow-md shadow-slate-200/50 transition flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-4 rounded-2xl bg-white hover:bg-emerald-50/80 text-[#164223] font-bold text-base border-2 border-[#164223]/30 shadow-md shadow-slate-200/50 transition flex items-center justify-center gap-2 cursor-pointer active:scale-95"
                 >
                   <span>Choose Subscription Plan</span>
-                  <span className="text-xs bg-[#E65100] text-white font-extrabold px-2 py-0.5 rounded-full">
+                  <span className="text-xs bg-[#E23724] text-white font-extrabold px-2 py-0.5 rounded-full shadow-xs">
                     Up to 20% Off
                   </span>
                 </button>
               </div>
 
-              {/* Quick Trust Badges */}
-              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-slate-500">
+              {/* Quick Trust Badges with clean typographic dots */}
+              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-slate-600">
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#2E7D32]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#164223]" />
                   <span>Zero Cloud-Kitchen Jargon</span>
                 </div>
+                <span className="text-slate-300">·</span>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#2E7D32]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#164223]" />
                   <span>Sugarcane Bagasse Eco-Bowls</span>
                 </div>
+                <span className="text-slate-300">·</span>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#2E7D32]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#164223]" />
                   <span>5 PM Pause Lockout</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Hero Visual Card */}
+            {/* Right Hero Visual Card with Brand Emblem */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
                   <img
                     src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1000&q=80"
-                    alt="Fresh Gourmet Salad Bowl"
+                    alt="Fresh Gourmet Salad Bowl - Le Bol Santé"
                     className="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  {/* Floating Badges */}
+                  {/* Official Brand Emblem Badge */}
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-lg border border-emerald-100 flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-[#2E7D32] flex items-center justify-center text-white">
-                      <Flame className="w-4 h-4 text-amber-300" />
-                    </div>
+                    <BrandEmblem className="w-8 h-8" />
                     <div>
                       <div className="text-[10px] uppercase font-bold text-slate-400">Gym Pro High-Protein</div>
-                      <div className="text-xs font-black text-[#1B5E20]">42g Protein &bull; 480 Kcal</div>
+                      <div className="text-xs font-black text-[#164223]">42g Protein &bull; 480 Kcal</div>
                     </div>
                   </div>
 
                   <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-lg border border-emerald-100 text-right">
-                    <div className="text-[10px] uppercase font-bold text-slate-400">Packaging</div>
-                    <div className="text-xs font-black text-[#E65100]">100% Bagasse &bull; Zero Plastic</div>
+                    <div className="text-[10px] uppercase font-bold text-slate-400">The Ultimate Salad</div>
+                    <div className="text-xs font-black text-[#E23724]">100% Bagasse &bull; Zero Plastic</div>
                   </div>
                 </div>
+
 
                 {/* Subtitle Card Underneath */}
                 <div className="mt-4 bg-emerald-900 text-white rounded-2xl p-4 shadow-xl flex items-center justify-between">

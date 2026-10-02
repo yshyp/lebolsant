@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Utensils, Award } from 'lucide-react';
+import { BrandEmblem } from './brand/BrandEmblem';
+
 
 interface SlicedVeg {
   id: string;
@@ -245,11 +247,11 @@ export const LiveChoppingBoardCard: React.FC = () => {
 
           <div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider text-[#1B5E20] bg-emerald-100 px-2 py-0.5 rounded-full">
-                <Utensils className="w-3 h-3 text-[#2E7D32]" />
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-[#164223] bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <BrandEmblem className="w-3.5 h-3.5" />
                 <span>5:00 AM Fresh Prep Station</span>
               </span>
-              <span className="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full animate-pulse">
+              <span className="text-[10px] font-bold text-[#E23724] bg-red-50 border border-red-200 px-2 py-0.5 rounded-full animate-pulse">
                 Live Chopping
               </span>
             </div>
@@ -257,7 +259,7 @@ export const LiveChoppingBoardCard: React.FC = () => {
               Zero Pre-Cut, Zero Soggy Greens
             </h4>
             <p className="text-xs text-slate-600 mt-0.5">
-              100% chopped at 5:00 AM daily in sugarcane bagasse bowls.
+              100% chopped at 5:00 AM daily in sugarcane bagasse bowls. The Ultimate Salad.
             </p>
           </div>
         </div>
@@ -268,17 +270,18 @@ export const LiveChoppingBoardCard: React.FC = () => {
             <span className="text-[10px] uppercase font-bold text-slate-400 block">
               Bowls Freshly Prepped
             </span>
-            <span className="text-xl font-black text-[#1B5E20] font-display">
+            <span className="text-xl font-black text-[#164223] font-display">
               {chops.toLocaleString()}+
             </span>
           </div>
 
           <button
             type="button"
-            className="px-3.5 py-2 rounded-xl bg-[#2E7D32] hover:bg-[#1B5E20] text-white text-xs font-bold shadow-md shadow-emerald-700/20 transition flex items-center gap-1.5 active:scale-95 cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-[#164223] hover:bg-[#0F351A] text-white text-xs font-bold shadow-md shadow-[#164223]/20 transition flex items-center gap-1.5 active:scale-95 cursor-pointer"
           >
             <span>🔪 Tap to Chop</span>
           </button>
+
         </div>
       </div>
     </div>

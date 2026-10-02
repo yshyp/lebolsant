@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { BrandLogo } from './brand/BrandLogo';
+import { BrandEmblem } from './brand/BrandEmblem';
 import {
+
   FileText,
   Shield,
   HelpCircle,
@@ -76,15 +79,21 @@ export const InfoPagesTab: React.FC = () => {
 
       {/* 1. ABOUT US */}
       {activeSubTab === 'about' && (
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-[#1B5E20] text-xs font-bold">
-            <Leaf className="w-3.5 h-3.5 text-[#2E7D32]" />
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl space-y-8">
+          {/* Official Brand Logo Presentation */}
+          <div className="flex justify-center pb-4 border-b border-slate-100">
+            <BrandLogo variant="full" className="max-w-md" />
+          </div>
+
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[#164223] text-xs font-bold">
+            <Leaf className="w-3.5 h-3.5 text-[#1B5E20]" />
             <span>Our Founding Philosophy</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 font-display">
             Fueling Your Day, One Fresh Bowl at a Time
           </h1>
+
 
           <div className="prose text-slate-600 text-sm sm:text-base leading-relaxed space-y-4">
             <p>

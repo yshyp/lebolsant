@@ -1,5 +1,6 @@
 import React from 'react';
 import { useApp } from '../context/AppContext';
+import { BrandLogo } from './brand/BrandLogo';
 import { Salad, Phone, MessageCircle, Mail, MapPin, ShieldCheck, Heart, TableProperties } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -10,38 +11,31 @@ export const Footer: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-
   return (
-    <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+    <footer className="bg-[#0B1E12] text-slate-300 pt-16 pb-12 border-t border-emerald-950/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-[#2E7D32] flex items-center justify-center text-white">
-                <Salad className="w-5 h-5 text-emerald-200" />
-              </div>
-              <span className="text-2xl font-black tracking-tight text-white font-display">
-                le bol santé
-              </span>
-            </div>
+            <BrandLogo
+              variant="compact"
+              theme="dark"
+              onClick={() => handleNav('home')}
+            />
 
-            <p className="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
-              Freshly Chopped, Perfectly Balanced — The Ultimate Salad. Subscription-based clean nutrition delivered to gyms, fitness centers, offices, and PG residences with 5 PM Day Push flexibility.
+            <p className="text-xs sm:text-sm text-emerald-100/70 max-w-sm leading-relaxed">
+              Freshly Chopped, Perfectly Balanced — The Ultimate Salad. Subscription-based clean nutrition delivered directly to gyms, fitness centers, offices, and PG residences with 5 PM Day Push flexibility.
             </p>
 
-            <div className="pt-2 flex flex-wrap gap-2 text-xs font-semibold">
-              <span className="px-2.5 py-1 rounded-md bg-slate-800 text-emerald-400 border border-slate-700">
-                🌱 100% Sugarcane Bagasse
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-slate-800 text-emerald-400 border border-slate-700">
-                ⏰ 5:00 PM Day Push Cutoff
-              </span>
-              <span className="px-2.5 py-1 rounded-md bg-slate-800 text-emerald-400 border border-slate-700">
-                🏋️ Direct to Gym Lockers
-              </span>
+            <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-semibold text-emerald-300/90">
+              <span>🌱 100% Sugarcane Bagasse</span>
+              <span className="text-emerald-800">·</span>
+              <span>⏰ 5:00 PM Day Push Cutoff</span>
+              <span className="text-emerald-800">·</span>
+              <span>🏋️ Direct to Gym Lockers</span>
             </div>
           </div>
+
 
           {/* Navigation Links */}
           <div className="space-y-3">

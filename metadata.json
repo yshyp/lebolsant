@@ -1,6 +1,6 @@
 {
   "name": "le bol santé",
-  "description": "Subscription-based fresh salads, soups, smoothies, oats and fruit bowls with automated day-push scheduling and kitchen logistics.",
+  "description": "Freshly chopped, perfectly balanced chef salad bowls, soups, smoothies, and overnight oats. The Ultimate Salad subscription.",
   "requestFramePermissions": ["geolocation"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

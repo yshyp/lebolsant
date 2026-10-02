@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
+import { BrandEmblem } from './brand/BrandEmblem';
 import { Phone, KeyRound, CheckCircle2, AlertCircle, ArrowRight, ShieldCheck, X } from 'lucide-react';
+
 
 export const AuthModal: React.FC = () => {
   const { isAuthModalOpen, setIsAuthModalOpen, sendOtp, verifyOtp, setIsProfileDrawerOpen } = useApp();
@@ -71,15 +73,14 @@ export const AuthModal: React.FC = () => {
         </button>
 
         {/* Modal Header */}
-        <div className="bg-gradient-to-br from-[#2E7D32] to-[#1B5E20] p-6 text-white text-center">
-          <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-inner">
-            <Phone className="w-6 h-6 text-emerald-100" />
-          </div>
+        <div className="bg-gradient-to-br from-[#164223] to-[#0F351A] p-6 text-white text-center relative overflow-hidden">
+          <BrandEmblem className="w-14 h-14 mx-auto mb-2 drop-shadow-md" />
           <h3 className="text-2xl font-bold font-display tracking-tight">Customer Access</h3>
-          <p className="text-xs text-emerald-100/90 mt-1">
+          <p className="text-xs text-emerald-200/90 mt-1">
             Mobile Number (Primary Key) &bull; Instant OTP Verification
           </p>
         </div>
+
 
         {/* Form Body */}
         <div className="p-6">
