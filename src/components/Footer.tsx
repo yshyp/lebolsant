@@ -163,6 +163,20 @@ export const Footer: React.FC = () => {
                   lebolsante@gmail.com
                 </a>
               </li>
+
+              {/* Official Government Registrations */}
+              <li className="pt-2 border-t border-emerald-950/80 space-y-1 text-[11px]">
+                <div className="flex items-center gap-1.5 text-emerald-300 font-bold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>Govt. Certified &amp; Licensed</span>
+                </div>
+                <div className="text-emerald-100/80 font-mono text-[11px]">
+                  <span className="text-slate-400 font-sans">FSSAI:</span> 21226193001466
+                </div>
+                <div className="text-emerald-100/80 font-mono text-[11px]">
+                  <span className="text-slate-400 font-sans">Udyam:</span> UDYAM-KR-03-0741986
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -172,12 +186,12 @@ export const Footer: React.FC = () => {
           <div>
             &copy; {new Date().getFullYear()} <strong>le bol santé</strong>. All Rights Reserved.
           </div>
-          <div className="flex items-center gap-4 text-[11px]">
-            <span>Natural Leaf Green #2E7D32</span>
+          <div className="flex flex-wrap items-center gap-3 text-[11px] text-emerald-200/60 font-mono">
+            <span>FSSAI: 21226193001466</span>
             <span>&bull;</span>
-            <span>Warm Cream #FDFBF7</span>
+            <span>Udyam: UDYAM-KR-03-0741986</span>
             <span>&bull;</span>
-            <span>Accent Terracotta #E65100</span>
+            <span>100% Bagasse Eco-Bowls</span>
           </div>
         </div>
       </div>
